@@ -1,0 +1,724 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfólio | Analista de Dados</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'navy': '#1e3a8a',
+                        'graphite': '#334155',
+                        'dark-bg': '#0f172a'
+                    }
+                },
+                fontFamily: {
+                    'sans': ['Inter', 'sans-serif'],
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        
+        body {
+            background-color: #0f172a;
+            color: #ffffff;
+        }
+        
+        .gradient-text {
+            background: linear-gradient(90deg, #1e3a8a, #60a5fa);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        .card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px -5px rgba(30, 58, 138, 0.4);
+        }
+        
+        .skill-bar {
+            height: 8px;
+            background: #1e293b;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+        
+        .skill-progress {
+            height: 100%;
+            background: linear-gradient(90deg, #1e3a8a, #3b82f6);
+            border-radius: 4px;
+        }
+
+        /* Dark mode styles */
+        html.dark {
+            background-color: #0a0e27;
+            color: #e5e7eb;
+        }
+
+        html.dark body {
+            background-color: #0a0e27;
+            color: #e5e7eb;
+        }
+
+        html.dark .bg-dark-bg {
+            background-color: #0a0e27;
+        }
+
+        html.dark .bg-graphite\/30 {
+            background-color: rgba(26, 31, 44, 0.3);
+        }
+
+        html.dark .bg-slate-800\/50 {
+            background-color: rgba(15, 23, 42, 0.7);
+        }
+
+        html.dark .bg-slate-800 {
+            background-color: #0f172a;
+        }
+
+        html.dark .bg-slate-900 {
+            background-color: #0a0e27;
+        }
+
+        html.dark .border-slate-700 {
+            border-color: #334155;
+        }
+
+        html.dark .text-gray-300 {
+            color: #d1d5db;
+        }
+
+        html.dark .text-gray-400 {
+            color: #9ca3af;
+        }
+
+        /* Light mode styles */
+        html.light {
+            background-color: #f8fafc;
+            color: #1e293b;
+        }
+
+        html.light body {
+            background-color: #f8fafc;
+            color: #1e293b;
+        }
+
+        html.light nav {
+            background-color: #ffffff !important;
+            border-color: #e2e8f0 !important;
+        }
+
+        html.light .bg-dark-bg {
+            background-color: #f8fafc;
+        }
+
+        html.light .bg-graphite\/30 {
+            background-color: rgba(241, 245, 249, 1);
+        }
+
+        html.light .bg-slate-800\/50 {
+            background-color: rgba(226, 232, 240, 0.8);
+        }
+
+        html.light .bg-slate-800 {
+            background-color: #f1f5f9;
+        }
+
+        html.light .bg-slate-900 {
+            background-color: #f0f4f8;
+        }
+
+        html.light .bg-navy\/30 {
+            background-color: rgba(30, 58, 138, 0.1);
+        }
+
+        html.light .bg-navy\/20 {
+            background-color: rgba(30, 58, 138, 0.15);
+        }
+
+        html.light .border-slate-700 {
+            border-color: #cbd5e1;
+        }
+
+        html.light .border-slate-600 {
+            border-color: #cbd5e1;
+        }
+
+        html.light .text-white {
+            color: #1e293b;
+        }
+
+        html.light .text-gray-300 {
+            color: #475569;
+        }
+
+        html.light .text-gray-400 {
+            color: #64748b;
+        }
+
+        html.light .text-gray-300 {
+            color: #64748b;
+        }
+
+        html.light .hover\:text-blue-400:hover {
+            color: #0ea5e9;
+        }
+
+        html.light .text-blue-300 {
+            color: #0284c7;
+        }
+
+        html.light .text-blue-400 {
+            color: #0284c7;
+        }
+
+        html.light .gradient-text {
+            background: linear-gradient(90deg, #1e3a8a, #0284c7);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        html.light input,
+        html.light textarea {
+            background-color: #f1f5f9 !important;
+            color: #1e293b !important;
+            border-color: #cbd5e1 !important;
+        }
+
+        html.light input::placeholder,
+        html.light textarea::placeholder {
+            color: #94a3b8;
+        }
+
+        html.light .card {
+            background-color: #ffffff;
+        }
+
+        html.light .card:hover {
+            box-shadow: 0 10px 25px -5px rgba(30, 58, 138, 0.15);
+        }
+
+        html.light h1,
+        html.light h2,
+        html.light h3,
+        html.light h4,
+        html.light h5,
+        html.light h6 {
+            color: #0f172a;
+        }
+
+        html.light .skill-bar {
+            background-color: #e2e8f0;
+        }
+
+        html.light .skill-progress {
+            background: linear-gradient(90deg, #1e3a8a, #0284c7);
+        }
+    </style>
+</head>
+<body class="font-sans">
+    <!-- Navbar -->
+    <nav class="bg-graphite/95 backdrop-blur-sm border-b border-slate-700 fixed w-full z-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <span class="text-xl font-bold text-white">Larissa<span class="text-navy"> Mello</span></span>
+                </div>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#home" class="text-white hover:text-blue-400 transition">Home</a>
+                    <a href="#sobre" class="text-white hover:text-blue-400 transition">Sobre</a>
+                    <a href="#habilidades" class="text-white hover:text-blue-400 transition">Habilidades</a>
+                    <a href="#projetos" class="text-white hover:text-blue-400 transition">Projetos</a>
+                    <a href="#contato" class="text-white hover:text-blue-400 transition">Contato</a>
+                    <button id="theme-toggle" class="text-white hover:text-blue-400 transition">
+                        <svg id="theme-icon" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 015.646 5.646 9.001 9.001 0 0120.354 15.354z"></path>
+                        </svg>
+                    </button>
+                </div>
+                <div class="md:hidden flex items-center space-x-4">
+                    <button id="theme-toggle" class="text-white hover:text-blue-400 transition">
+                        <svg id="theme-icon" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 015.646 5.646 9.001 9.001 0 0120.354 15.354z"></path>
+                        </svg>
+                    </button>
+                    <button id="mobile-menu-button" class="text-white">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-graphite border-b border-slate-700">
+            <div class="px-2 pt-2 pb-3 space-y-1">
+                <a href="#home" class="block px-3 py-2 text-white hover:bg-slate-700 rounded-md">Home</a>
+                <a href="#sobre" class="block px-3 py-2 text-white hover:bg-slate-700 rounded-md">Sobre</a>
+                <a href="#habilidades" class="block px-3 py-2 text-white hover:bg-slate-700 rounded-md">Habilidades</a>
+                <a href="#projetos" class="block px-3 py-2 text-white hover:bg-slate-700 rounded-md">Projetos</a>
+                <a href="#contato" class="block px-3 py-2 text-white hover:bg-slate-700 rounded-md">Contato</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="pt-24 pb-16 md:pt-32 md:pb-24">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 mb-10 md:mb-0">
+                    <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-4">
+                        <span class="gradient-text">Contando histórias através da</span> análise e visualização de dados, <span class="gradient-text">com foco em eficiência, automação e tomada de decisão.</span>
+                    </h1>
+                    <p class="text-gray-300 text-lg md:text-xl mb-8">
+                        Analista de dados com foco em construção de pipelines, automação e desenvolvimento de dashboards.
+                    </p>
+                    <div class="flex flex-wrap gap-4">
+                        <a href="#contato" class="bg-navy hover:bg-blue-800 text-white font-medium py-3 px-6 rounded-lg transition duration-300 shadow-lg">
+                            Entre em contato
+                        </a>
+                        <a href="#projetos" class="border border-navy text-white hover:bg-navy/20 font-medium py-3 px-6 rounded-lg transition duration-300">
+                            Ver projetos
+                        </a>
+                    </div>
+                </div>
+                <div class="md:w-1/2 flex justify-center">
+                    <div class="relative w-64 h-64 md:w-80 md:h-80">
+                        <div class="absolute inset-0 rounded-full bg-gradient-to-r from-navy to-blue-600 blur-xl opacity-20 animate-pulse"></div>
+                        <div class="absolute inset-0 flex items-center justify-center">
+                            <svg class="w-48 h-48 md:w-64 md:h-64 text-navy" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sobre Section -->
+    <section id="sobre" class="py-16 bg-graphite/30">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Sobre Mim</h2>
+                <div class="w-20 h-1 bg-navy mx-auto"></div>
+            </div>
+            <div class="flex flex-col md:flex-row items-center gap-10">
+                <div class="md:w-1/3 flex justify-center">
+                    <div class="w-64 h-64 rounded-full bg-gradient-to-br from-navy to-blue-600 p-1">
+                        <div class="w-full h-full rounded-full bg-dark-bg flex items-center justify-center overflow-hidden">
+                            <img src="img/perfil.jpg" alt="Larissa Mello" class="w-full h-full object-cover" />
+                        </div>
+                    </div>
+                </div>
+                <div class="md:w-2/3 mt-8 md:mt-0">
+                    <!-- <h3 class="text-2xl font-semibold mb-4">Analista de Dados</h3> -->
+                    <p class="text-gray-300 mb-6">
+                        Atuo há cerca de 3 anos na área de dados, apoiando a tomada de decisão por meio de análise, transformação e visualização de dados. Minha experiência inclui Python, SQL e AWS, com atuação na construção de pipelines ETL, automação de processos e desenvolvimento de dashboards.
+
+
+                    </p>
+                    <p class="text-gray-300 mb-6">
+                        Cursando Ciência da Computação, com previsão de conclusão em dezembro de 2027. Tenho formação em Relações Públicas, o que contribui para a comunicação clara das análises. Busco estruturar dados e gerar análises consistentes e aplicáveis, aliando pensamento analítico e comunicação objetiva para apoiar decisões de negócio.
+                    </p>
+                    <div class="flex flex-wrap gap-3">
+                        <span class="bg-navy/30 text-blue-300 px-3 py-1 rounded-full text-sm">SQL</span>
+                        <span class="bg-navy/30 text-blue-300 px-3 py-1 rounded-full text-sm">Python</span>
+                        <!-- <span class="bg-navy/30 text-blue-300 px-3 py-1 rounded-full text-sm">R</span> -->
+                        <span class="bg-navy/30 text-blue-300 px-3 py-1 rounded-full text-sm">Power BI</span>
+                        <span class="bg-navy/30 text-blue-300 px-3 py-1 rounded-full text-sm">Quicksight</span>
+                        <span class="bg-navy/30 text-blue-300 px-3 py-1 rounded-full text-sm">Banco de dados</span>
+                        <span class="bg-navy/30 text-blue-300 px-3 py-1 rounded-full text-sm">AWS</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Habilidades Section -->
+    <section id="habilidades" class="py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Minhas Habilidades</h2>
+                <div class="w-20 h-1 bg-navy mx-auto"></div>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Card 1: Dados -->
+                <div class="card bg-slate-800/50 p-6 rounded-lg border border-slate-700 text-center">
+                    <div class="flex justify-center mb-4">
+                        <svg class="w-12 h-12 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-lg font-semibold mb-3">Dados</h3>
+                    <div class="flex flex-wrap gap-2 justify-center">
+                        <span class="bg-navy/30 text-blue-300 px-2 py-1 rounded text-xs">SQL</span>
+                        <span class="bg-navy/30 text-blue-300 px-2 py-1 rounded text-xs">Python</span>
+                        <span class="bg-navy/30 text-blue-300 px-2 py-1 rounded text-xs">Pandas</span>
+                        <!-- <span class="bg-navy/30 text-blue-300 px-2 py-1 rounded text-xs">R</span> -->
+                    </div>
+                </div>
+
+                <!-- Card 2: Cloud & ETL -->
+                <div class="card bg-slate-800/50 p-6 rounded-lg border border-slate-700 text-center">
+                    <div class="flex justify-center mb-4">
+                        <svg class="w-12 h-12 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M9 19l3 3m0 0l3-3m-3 3v-7"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-lg font-semibold mb-3">Cloud & ETL</h3>
+                    <div class="flex flex-wrap gap-2 justify-center">
+                        <span class="bg-navy/30 text-blue-300 px-2 py-1 rounded text-xs">AWS</span>
+                        <span class="bg-navy/30 text-blue-300 px-2 py-1 rounded text-xs">ETL</span>
+                        <span class="bg-navy/30 text-blue-300 px-2 py-1 rounded text-xs">Automação</span>
+                    </div>
+                </div>
+
+                <!-- Card 3: Visualização -->
+                <div class="card bg-slate-800/50 p-6 rounded-lg border border-slate-700 text-center">
+                    <div class="flex justify-center mb-4">
+                        <svg class="w-12 h-12 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 12l3-3 3 3 4-4M8 21l4-4 4 4M3 4h18M4 4h16v12a1 1 0 01-1 1H5a1 1 0 01-1-1V4z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-lg font-semibold mb-3">Visualização</h3>
+                    <div class="flex flex-wrap gap-2 justify-center">
+                        <span class="bg-navy/30 text-blue-300 px-2 py-1 rounded text-xs">Power BI</span>
+                        <!-- <span class="bg-navy/30 text-blue-300 px-2 py-1 rounded text-xs">Tableau</span> -->
+                        <span class="bg-navy/30 text-blue-300 px-2 py-1 rounded text-xs">Quicksight</span>
+                    </div>
+                </div>
+
+                <!-- Card 4: Ferramentas -->
+                <div class="card bg-slate-800/50 p-6 rounded-lg border border-slate-700 text-center">
+                    <div class="flex justify-center mb-4">
+                        <svg class="w-12 h-12 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-lg font-semibold mb-3">Ferramentas</h3>
+                    <div class="flex flex-wrap gap-2 justify-center">
+                        <span class="bg-navy/30 text-blue-300 px-2 py-1 rounded text-xs">Excel</span>
+                        <span class="bg-navy/30 text-blue-300 px-2 py-1 rounded text-xs">Git</span>
+                        <span class="bg-navy/30 text-blue-300 px-2 py-1 rounded text-xs">Banco de dados</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projetos Section -->
+    <section id="projetos" class="py-16 bg-graphite/30">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Projetos em Destaque</h2>
+                <div class="w-20 h-1 bg-navy mx-auto"></div>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Projeto 1 -->
+                <div class="card bg-slate-800 rounded-lg overflow-hidden shadow-lg border border-slate-700">
+                    <div class="h-48 bg-navy/30 flex items-center justify-center">
+                        <svg class="w-20 h-20 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
+                        </svg>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2">Dashboard financeiro</h3>
+                        <p class="text-gray-400 mb-4">Desenvolvimento de um dashboard interativo para análise de dados financeiros, permitindo visualização para evolução de Receitas vs Despesas.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-navy/20 text-blue-400 px-2 py-1 rounded text-xs">Power BI</span>
+                            <span class="bg-navy/20 text-blue-400 px-2 py-1 rounded text-xs">ETL</span>
+                            <span class="bg-navy/20 text-blue-400 px-2 py-1 rounded text-xs">DAX</span>
+                        </div>
+                        <a href="https://app.powerbi.com/groups/me/reports/0cf1de36-cf1c-48c4-84e5-7fd3439c7d75/2a09cc1d20c4872dd04b?experience=power-bi" target="_blank" class="bg-navy hover:bg-blue-800 text-white py-2 px-4 rounded-lg w-full transition duration-300 text-center block">Ver detalhes</a>
+                    </div>
+                </div>
+                
+                <!-- Projeto 2 -->
+                <div class="card bg-slate-800 rounded-lg overflow-hidden shadow-lg border border-slate-700">
+                    <div class="h-48 bg-navy/30 flex items-center justify-center">
+                        <svg class="w-20 h-20 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M7 12l3-3 3 3 4-4M8 21l4-4 4 4M3 4h18M4 4h16v12a1 1 0 01-1 1H5a1 1 0 01-1-1V4z"></path>
+                        </svg>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2">Dashboard E-commerce (Calçados)</h3>
+                        <p class="text-gray-400 mb-4">Análise dos principais indicadores de performance. E entender qual produto esta sendo mais ou menos vendido.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-navy/20 text-blue-400 px-2 py-1 rounded text-xs">Python</span>
+                            <span class="bg-navy/20 text-blue-400 px-2 py-1 rounded text-xs">Pandas</span>
+                            <span class="bg-navy/20 text-blue-400 px-2 py-1 rounded text-xs">Excel</span>
+                        </div>
+                        <a href="https://app.powerbi.com/groups/me/reports/9a9c6dc8-158b-4f8d-b7c9-f6dafc8a1673/c8102adf224988bd878a?experience=power-bi" target="_blank" class="bg-navy hover:bg-blue-800 text-white py-2 px-4 rounded-lg w-full transition duration-300 text-center block">Ver detalhes</a>
+                    </div>
+                </div>
+                
+                <!-- Projeto 3 -->
+                <div class="card bg-slate-800 rounded-lg overflow-hidden shadow-lg border border-slate-700">
+                    <div class="h-48 bg-navy/30 flex items-center justify-center">
+                        <svg class="w-20 h-20 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                        </svg>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2">Análise de Mercado</h3>
+                        <p class="text-gray-400 mb-4">Em construção.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-navy/20 text-blue-400 px-2 py-1 rounded text-xs">Power BI</span>
+                            <span class="bg-navy/20 text-blue-400 px-2 py-1 rounded text-xs">Excel</span>
+                            <span class="bg-navy/20 text-blue-400 px-2 py-1 rounded text-xs">Python</span>
+                        </div>
+                        <button class="bg-navy hover:bg-blue-800 text-white py-2 px-4 rounded-lg w-full transition duration-300">Ver detalhes</button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-10">
+                <button class="bg-navy hover:bg-blue-800 text-white font-medium py-3 px-8 rounded-lg transition duration-300 shadow-lg">
+                    Ver todos os projetos
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contato Section -->
+    <section id="contato" class="py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Entre em Contato</h2>
+                <div class="w-20 h-1 bg-navy mx-auto"></div>
+            </div>
+            
+            <div class="flex flex-col md:flex-row gap-10">
+                <div class="md:w-1/2">
+                    <div class="bg-slate-800/50 p-6 rounded-lg h-full border border-slate-700">
+                        <h3 class="text-xl font-semibold mb-6">Informações de Contato</h3>
+                        
+                        <div class="flex items-start mb-6">
+                            <div class="bg-navy/30 p-3 rounded-full mr-4">
+                                <svg class="w-6 h-6 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                                </svg>
+                            </div>
+                            <div>
+                                <h4 class="text-lg font-medium mb-1">Email</h4>
+                                <p class="text-gray-300">Larissa.mellorp@gmail.com</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start mb-6">
+                            <div class="bg-navy/30 p-3 rounded-full mr-4">
+                                <svg class="w-6 h-6 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
+                                </svg>
+                            </div>
+                            <div>
+                                <h4 class="text-lg font-medium mb-1">Telefone</h4>
+                                <p class="text-gray-300">(11) 91655-2311</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="bg-navy/30 p-3 rounded-full mr-4">
+                                <svg class="w-6 h-6 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                                </svg>
+                            </div>
+                            <div>
+                                <h4 class="text-lg font-medium mb-1">Localização</h4>
+                                <p class="text-gray-300">Tucuruvi | São Paulo, SP - Brasil</p>
+                            </div>
+                        </div>
+                        
+                        <div class="mt-8">
+                            <h4 class="text-lg font-medium mb-4">Redes Sociais</h4>
+                            <div class="flex space-x-4">
+                                <!-- <a href="#" class="bg-navy/30 p-3 rounded-full text-blue-400 hover:bg-navy/50 transition">
+                                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M22.675 0H1.325C.593 0 0 .593 0 1.325v21.351C0 23.407.593 24 1.325 24H12.82v-9.294H9.692v-3.622h3.128V8.413c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.463.099 2.795.143v3.24l-1.918.001c-1.504 0-1.795.715-1.795 1.763v2.313h3.587l-.467 3.622h-3.12V24h6.116c.73 0 1.323-.593 1.323-1.325V1.325C24 .593 23.407 0 22.675 0z"/>
+                                    </svg>
+                                </a> -->
+                                <a href="https://www.linkedin.com/in/larissamelloc/" target="_blank" rel="noreferrer noopener" class="bg-navy/30 p-3 rounded-full text-blue-400 hover:bg-navy/50 transition">
+                                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                                    </svg>
+                                </a>
+                                <a href="https://github.com/Larisssacm" target="_blank" rel="noreferrer noopener" class="bg-navy/30 p-3 rounded-full text-blue-400 hover:bg-navy/50 transition">
+                                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="md:w-1/2">
+                    <div class="bg-slate-800/50 p-6 rounded-lg border border-slate-700">
+                        <h3 class="text-xl font-semibold mb-6">Envie uma Mensagem</h3>
+                        
+                        <form action="https://formspree.io/f/xlgoanzy" method="POST">
+                            <input type="hidden" name="_subject" value="Nova mensagem do portfólio">
+                            <input type="hidden" name="_language" value="pt-BR">
+
+                            <div class="mb-4">
+                                <label for="name" class="block text-gray-300 mb-2">Nome</label>
+                                <input type="text" id="name" name="name" required class="w-full bg-slate-900 border border-slate-600 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-navy transition">
+                            </div>
+                            
+                            <div class="mb-4">
+                                <label for="email" class="block text-gray-300 mb-2">Email</label>
+                                <input type="email" id="email" name="_replyto" required class="w-full bg-slate-900 border border-slate-600 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-navy transition">
+                            </div>
+                            
+                            <div class="mb-4">
+                                <label for="subject" class="block text-gray-300 mb-2">Assunto</label>
+                                <input type="text" id="subject" name="subject" required class="w-full bg-slate-900 border border-slate-600 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-navy transition">
+                            </div>
+                            
+                            <div class="mb-6">
+                                <label for="message" class="block text-gray-300 mb-2">Mensagem</label>
+                                <textarea id="message" name="message" rows="5" required class="w-full bg-slate-900 border border-slate-600 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-navy transition"></textarea>
+                            </div>
+                            
+                            <button type="submit" class="bg-navy hover:bg-blue-800 text-white font-medium py-3 px-6 rounded-lg transition duration-300 shadow-lg w-full">
+                                Enviar Mensagem
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-graphite py-10 border-t border-slate-700">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-6 md:mb-0">
+                    <!-- <span class="text-xl font-bold text-white">Larissa<span class="text-navy"> Mello</span></span> -->
+                    <p class="text-gray-400 mt-2">Contando histórias através de dados</p>
+                </div>
+                
+                <!-- <div class="flex space-x-6">
+                    <a href="#" class="text-gray-400 hover:text-blue-400 transition">
+                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M22.675 0H1.325C.593 0 0 .593 0 1.325v21.351C0 23.407.593 24 1.325 24H12.82v-9.294H9.692v-3.622h3.128V8.413c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.463.099 2.795.143v3.24l-1.918.001c-1.504 0-1.795.715-1.795 1.763v2.313h3.587l-.467 3.622h-3.12V24h6.116c.73 0 1.323-.593 1.323-1.325V1.325C24 .593 23.407 0 22.675 0z"/>
+                        </svg>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-blue-400 transition">
+                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M23.954 4.569c-.885.389-1.83.654-2.825.775 1.014-.611 1.794-1.574 2.163-2.723-.951.555-2.005.959-3.127 1.184-.896-.959-2.173-1.559-3.591-1.559-2.717 0-4.92 2.203-4.92 4.917 0 .39.045.765.127 1.124C7.691 8.094 4.066 6.13 1.64 3.161c-.427.722-.666 1.561-.666 2.475 0 1.71.87 3.213 2.188 4.096-.807-.026-1.566-.248-2.228-.616v.061c0 2.385 1.693 4.374 3.946 4.827-.413.111-.849.171-1.296.171-.314 0-.615-.03-.916-.086.631 1.953 2.445 3.377 4.604 3.417-1.68 1.319-3.809 2.105-6.102 2.105-.39 0-.779-.023-1.17-.067 2.189 1.394 4.768 2.209 7.557 2.209 9.054 0 13.999-7.496 13.999-13.986 0-.209 0-.42-.015-.63.961-.689 1.8-1.56 2.46-2.548l-.047-.02z"/>
+                        </svg>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-blue-400 transition">
+                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                        </svg>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-blue-400 transition">
+                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                        </svg>
+                    </a>
+                </div> -->
+            </div>
+            
+            <div class="border-t border-slate-700 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-400 text-sm mb-4 md:mb-0">© 2026 Larissa Mello. Todos os direitos reservados.</p>
+                
+                <div class="flex space-x-6">
+                    <a href="#" class="text-gray-400 hover:text-white text-sm transition">Política de Privacidade</a>
+                    <a href="#" class="text-gray-400 hover:text-white text-sm transition">Termos de Serviço</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Theme toggle
+        const themeToggle = document.getElementById('theme-toggle');
+        const themeIcon = document.getElementById('theme-icon');
+        const html = document.documentElement;
+
+        // Verificar preferência salva ou preferência do sistema
+        const isDarkMode = localStorage.getItem('theme') === 'dark' || 
+                          (!localStorage.getItem('theme') && window.matchMedia('(prefers-color-scheme: dark)').matches);
+
+        // Aplicar tema inicial
+        if (isDarkMode) {
+            html.classList.add('dark');
+            html.classList.remove('light');
+            updateThemeIcon(true);
+        } else {
+            html.classList.add('light');
+            html.classList.remove('dark');
+            updateThemeIcon(false);
+        }
+
+        // Listener para o botão
+        themeToggle.addEventListener('click', () => {
+            const isDark = html.classList.toggle('dark');
+            html.classList.toggle('light');
+            localStorage.setItem('theme', isDark ? 'dark' : 'light');
+            updateThemeIcon(isDark);
+        });
+
+        function updateThemeIcon(isDark) {
+            if (isDark) {
+                // Mostrar ícone de sol (para mudar para light mode)
+                themeIcon.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1m-16 0H1m15.364 1.636l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path>';
+            } else {
+                // Mostrar ícone de lua (para mudar para dark mode)
+                themeIcon.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21.752 15.002A9.718 9.718 0 0118.093 19.5c-5.296 0-9.606-4.31-9.606-9.606a9.706 9.706 0 013.748-7.592m5.239 12.737A9.999 9.999 0 0112.5 3c-5.296 0-9.606 4.31-9.606 9.606a9.706 9.706 0 003.748 7.592m11.48-9.141a.75.75 0 100-1.5.75.75 0 000 1.5z"></path>';
+            }
+        }
+
+        // Mobile menu toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+        
+        // Close mobile menu when clicking on a link
+        const mobileLinks = document.querySelectorAll('#mobile-menu a');
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                window.scrollTo({
+                    top: targetElement.offsetTop - 64,
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
